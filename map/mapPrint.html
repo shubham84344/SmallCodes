@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Example</title>
+</head>
+
+<body>
+    <h1>double number</h1>
+    <h3>question</h3>
+    <div id="ognum"></div>
+    <h3>Ans</h3>
+    <div id="doublenum"></div>
+    <script>
+        const numbers = [45, 7, 6656, 552, 96, 5];
+        const doublenum = document.getElementById('doublenum');
+        const ognum = document.getElementById('ognum');
+        const double = numbers.map(num => num * 2);
+        double.forEach(value => {
+            const span = document.createElement('span');
+            span.innerHTML = `${value} , `
+            doublenum.appendChild(span);
+        })
+        numbers.forEach(value => {
+            const span = document.createElement('span');
+            span.innerHTML = `${value} , `
+            ognum.appendChild(span);
+        })
+    </script>
+</body>
+
+</html>

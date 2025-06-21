@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repos Table</title>
+</head>
+
+<body>
+    <h1>GitHub Repositories</h1>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Full Name</th>
+            </tr>
+        </thead>
+        <tbody id="postlist"></tbody>
+    </table>
+
+    <script>
+        const url2 = 'https://api.github.com/users/xiaotian/repos';
+        const postlist = document.getElementById('postlist');
+
+        fetch(url2)
+            .then(res => res.json())
+            .then(data => {
+                data.slice(0, 5).forEach(post => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${post.name}</td>
+                        <td>${post.full_name}</td>
+                    `;
+                    postlist.appendChild(tr);
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+
+</html>

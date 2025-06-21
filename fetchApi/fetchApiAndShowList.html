@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch Example</title>
+</head>
+<body>
+
+    <h1>Posts</h1>
+    <ul id="postList"></ul>
+
+    <script>
+        const url = 'https://jsonplaceholder.typicode.com/posts';
+        const postList = document.getElementById('postList');
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                data.slice(0, 5).forEach(post => { // showing only first 5 posts
+                    const li = document.createElement('li');
+                    li.textContent = post.title;
+                    postList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
+
+</body>
+</html>

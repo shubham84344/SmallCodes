@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Post</h1>
+    <ul id="postlist"></ul>
+
+    <script>
+        const url2 = 'https://api.github.com/users/xiaotian/repos';
+        const postlist = document.getElementById('postlist');
+
+        fetch(url2)
+            .then(res => res.json())
+            .then(data => {
+                data.slice(0, 5).forEach(post => {
+                    const li = document.createElement('li');
+                    li.textContent = `Name: ${post.name}, Full Name: ${post.full_name}`;
+                    postlist.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+
+</html>

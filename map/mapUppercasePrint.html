@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UspperCase Text</title>
+</head>
+
+<body>
+    <h1>UpperCase Text</h1>
+    <h3>Orignal Text</h3>
+    <div id="orignalText"></div>
+    <h3>Transform Uppercase Text</h3>
+    <div id="transformText"></div>
+    <script>
+        const users = [
+            { id: 1, name: "shubham" },
+            { id: 2, name: "naresh" },
+            { id: 3, name: "patel" },
+        ]
+        const orignalText = document.getElementById('orignalText');
+        const transformText = document.getElementById('transformText');
+        const UpperCaseText = users.map(user => user.name.toUpperCase());
+
+        users.forEach(text => {
+            const span = document.createElement('span');
+            span.innerHTML = `${text.name} , `
+            orignalText.appendChild(span);
+        })
+        UpperCaseText.forEach(text => {
+            const span = document.createElement('span');
+            span.innerHTML = `${text} , `
+            transformText.appendChild(span);
+        })
+    </script>
+</body>
+
+</html>

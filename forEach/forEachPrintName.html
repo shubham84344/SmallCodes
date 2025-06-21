@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Names</h1>
+    <ul id="names"></ul>
+    <script>
+        const people = [
+            { id: 1, name: "shubham" },
+            { id: 2, name: "naresh" },
+            { id: 3, name: "patel" },
+        ]
+        const names = document.getElementById('names');
+        people.forEach(text => {
+            const li = document.createElement('li');
+            li.textContent = text.name;
+            names.appendChild(li);
+        })
+    </script>
+</body>
+
+</html>
