@@ -4,27 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Table</title>
+    <title>Document</title>
     <style>
         table {
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 20px;
         }
-
-        th,
-        td {
-            border: 1px solid #ddd;
+        th,td{
             padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
+            border:  solid 1px grey;
         }
     </style>
 </head>
 
 <body>
+    <h1>Data to Table</h1>
     <script>
         const users1 = [
             { name: "shubham", subName: "patel" },
@@ -42,20 +36,14 @@
 
         function commonTableFun(data) {
             const keys = Object.keys(data[0] || {});
-            console.log(keys);
-            console.log(data);
-            const tableHTML = `
-            <table>
-             <tr>${keys.map(key => `<th>${key}</th>`).join('')}</tr>
-             ${data.map(item =>
-                `<tr>${keys.map(key => `<td>${item[key] ?? ''}</td>`).join('')}</tr>`
-             ).join('')}
-             </table>
+            const innerHtmlVar = `
+                 <table>
+                    <tr>${keys.map(keys => `<th>${keys}</th>`).join('')}</tr>
+                    ${data.map(item => `<tr>${keys.map(key => `<td>${item[key] ?? ''}</td>`).join('')}</tr>`).join('')}
+                 </table>
             `;
-            console.log(tableHTML);
-            document.body.innerHTML += tableHTML;
+            document.body.innerHTML += innerHtmlVar;
         }
-
         commonTableFun(users1);
         commonTableFun(users2);
         commonTableFun(users3);
