@@ -1,65 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<script>
+    function addToNum(num1,num2){
+        return num1 + num2;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
+    const result = addToNum(15,80);
 
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-
-<body>
-    <script>
-        const users1 = [
-            { name: "shubham", subName: "patel" },
-            { name: "naresh", subName: "patel" },
-            { name: "sagar", subName: "patel" },
-        ];
-        const users2 = [
-            { name: "Shubham", age: 25, email: "shubham@example.com", isActive: true },
-            { name: "Rahul", age: 28, email: "rahul@example.com", isActive: false }
-        ];
-        const users3 = [
-            { username: "skywalker", role: "admin", joined: 2022, isPremium: true },
-            { username: "ironman99", role: "editor", joined: 2023, isPremium: false }
-        ];
-
-        function commonTableFun(data) {
-            const keys = Object.keys(data[0] || {});
-            console.log(keys);
-            console.log(data);
-            const tableHTML = `
-            <table>
-             <tr>${keys.map(key => `<th>${key}</th>`).join('')}</tr>
-             ${data.map(item =>
-                `<tr>${keys.map(key => `<td>${item[key] ?? ''}</td>`).join('')}</tr>`
-             ).join('')}
-             </table>
-            `;
-            console.log(tableHTML);
-            document.body.innerHTML += tableHTML;
-        }
-
-        commonTableFun(users1);
-        commonTableFun(users2);
-        commonTableFun(users3);
-    </script>
-</body>
-
-</html>
+    console.log(result);
+</script>
