@@ -7,7 +7,6 @@ const mystore = configureStore({
     reducer: {
         cart: cartReducer,
         category: categoryReducer,
-
     }
 });
 
